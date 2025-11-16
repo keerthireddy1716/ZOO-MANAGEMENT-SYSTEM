@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zoo Directions — Separated Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Zoo Exhibits — Click an image for directions</h1>
+      <div class="small">Simple HTML • CSS • JavaScript demo</div>
+    </header>
+
+    <section class="controls">
+      <form id="requestForm">
+        <label for="infoName">Your name:</label>
+        <input id="infoName" name="name" placeholder="e.g. Priya" required>
+        <label for="infoEmail">Email (optional):</label>
+        <input id="infoEmail" name="email" placeholder="you@example.com">
+        <label>What do you want?</label>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="moreImages" checked> More Images</label>
+          <label><input type="checkbox" name="detailedDirections"> Detailed Directions</label>
+        </div>
+        <button type="submit" class="btn">Request Info</button>
+      </form>
+    </section>
+
+    <section class="grid" id="animalGrid" aria-live="polite">
+      <!-- cards inserted here -->
+    </section>
+
+    <footer>
+      Tip: click the image or 'Get Directions' to open the directions panel. Use the form above to request more images or detailed directions and we will save your request locally.
+    </footer>
+  </div>
+
+  <aside id="directionsPanel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+    <div class="panel-header">
+      <div>
+        <div id="panelTitle" style="font-weight:700"></div>
+        <div id="panelSubtitle" class="small"></div>
+      </div>
+      <div>
+        <button id="closeBtn" class="close" aria-label="Close directions">✕</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div>
+        <strong>Route</strong>
+        <ol id="routeList" class="landmarks"></ol>
+      </div>
+      <div style="margin-top:10px">
+        <strong>Estimated Walk</strong>
+        <div id="eta" class="small" style="margin-top:6px"></div>
+      </div>
+      <div style="margin-top:10px">
+        <strong>Nearby Amenities</strong>
+        <div id="amenities" class="amenities"></div>
+      </div>
+      <div id="moreImagesContainer" style="margin-top:12px">
+        <strong>More Images</strong>
+        <div id="moreImages" class="more-images"></div>
+      </div>
+      <div style="margin-top:12px">
+        <strong>Availability</strong>
+        <div id="availability" class="small" style="margin-top:6px"></div>
+      </div>
+      <div style="margin-top:12px;display:flex;justify-content:space-between;gap:8px">
+        <button id="getDirectionsBtn" class="btn" style="flex:1">Open Full Map</button>
+        <button id="saveBtn" class="btn" style="flex:1;background:#64748b">Save Visit</button>
+      </div>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
